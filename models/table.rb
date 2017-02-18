@@ -11,8 +11,4 @@ class Table
     @east = east
   end
 
-  def size
-    [@north, @east]
-  end
-
 end

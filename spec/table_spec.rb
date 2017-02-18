@@ -4,7 +4,7 @@ require_relative "../models/table.rb"
 describe Table do
 
   subject(:table) do
-    table = Table.new(6,5)
+    table = Table.new(5,5)
   end
 
   describe "attributes of a table" do
@@ -19,16 +19,4 @@ describe Table do
     end
   end
 
-  describe "#size" do
-    it "is a array" do
-      expect(table.size).to be_a(Array)
-    end
-    it "first element in the array is north" do
-      expect(table.size.first).to eq(table.north)
-    end
-    it "last element in the array is east" do
-      expect(table.size.last).to eq(table.east)
-    end
-
-  end
 end
