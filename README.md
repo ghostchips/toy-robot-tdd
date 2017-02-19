@@ -21,7 +21,7 @@ Input commands:
 - LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
 - REPORT will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
 
-## Example Input and Output:
+#### Example Input and Output:
 - **a)**
 PLACE 0,0,NORTH
 MOVE
