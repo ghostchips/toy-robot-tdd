@@ -25,6 +25,9 @@ describe Robot do
     it "west is an Integer" do
       expect(@robot.west).to be_a(Integer)
     end
+    it "compass is an array" do
+      expect(@robot.compass).to be_a(Array)
+    end
   end
 
   describe "@robot initiation values" do
@@ -39,6 +42,9 @@ describe Robot do
     end
     it "west is 0" do
       expect(@robot.west).to eq(0)
+    end
+    it "compass cointains all cardinal directions" do
+      expect(@robot.compass).to eq(['NORTH', 'EAST', 'SOUTH', 'WEST'])
     end
 
   end
@@ -166,5 +172,56 @@ describe Robot do
     end
 
   end
+
+  describe "#turn_left" do
+    before(:each) do
+      @x = 1
+      @y = 1
+    end
+
+    context "when robot turns left" do
+      it "facing direction should rotate left by one cardinal direction" do
+        @facing = @robot.compass[rand(1..2)]
+        @robot.place(@x,@y,@facing)
+        @robot.turn_left
+        @new_direction = @robot.compass[@robot.compass.index(@facing) - 1]
+        expect(@robot.facing).to eq(@new_direction)
+      end
+      context "when robot turns left when facing West" do
+        it "direction should change to face North" do
+          @facing = @robot.compass.first
+          @robot.place(@x,@y,@facing)
+          @robot.turn_left
+          expect(@robot.facing).to eq(@robot.compass.last)
+        end
+      end
+    end
+  end
+
+  describe "#turn_rigt" do
+    before(:each) do
+      @x = 1
+      @y = 1
+    end
+
+    context "when robot turns right" do
+      it "facing direction should rotate right by one cardinal direction" do
+        @facing = @robot.compass[rand(1..2)]
+        @robot.place(@x,@y,@facing)
+        @robot.turn_right
+        @new_direction = @robot.compass[@robot.compass.index(@facing) + 1]
+        expect(@robot.facing).to eq(@new_direction)
+      end
+      context "when robot turns right when facing North" do
+        it "direction should change to face West" do
+          @facing = @robot.compass.last
+          @robot.place(@x,@y,@facing)
+          @robot.turn_right
+          expect(@robot.facing).to eq(@robot.compass.first)
+        end
+      end
+    end
+  end
+
 
 end
