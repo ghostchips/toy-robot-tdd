@@ -223,5 +223,14 @@ describe Robot do
     end
   end
 
+  describe "#report" do
+    it "to report an Array" do
+      expect(@robot.report).to be_a(Array)
+    end
+    it "shows coordinates and facing direction" do
+      expect(@robot.report).to eq([@robot.x, @robot.y, @robot.facing])
+    end
+  end
+
 
 end

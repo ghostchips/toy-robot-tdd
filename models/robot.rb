@@ -1,6 +1,4 @@
 
-# require "pry"
-
 # robot class that is used to set and move the robot.
 
 class Robot
@@ -67,17 +65,18 @@ class Robot
   end
 
   def turn_right
-  compass = ['NORTH', 'EAST', 'SOUTH', 'WEST']
-  # moving left on 'WEST' will face you 'NORTH'
-  if @facing == 'WEST'
-    @facing = 'NORTH'
-  else
-    # Change what direction robot is facing by moving right in the compass array based on current facing direction
-  @facing = compass[compass.index(@facing) + 1]
+    # moving left on 'WEST' will face you 'NORTH'
+    if @facing == 'WEST'
+      @facing = 'NORTH'
+    else
+      # Change what direction robot is facing by moving right in the compass array based on current facing direction
+    @facing = compass[compass.index(@facing) + 1]
+    end
   end
-end
 
-
-# binding.pry
+  def report
+    # display current location in array format
+    return [@x, @y, @facing]
+  end
 
 end
