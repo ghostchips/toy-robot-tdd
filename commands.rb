@@ -1,10 +1,14 @@
 
+require_relative "./models/collect.rb"
+require_relative "./models/execute.rb"
 
 def collect_and_execute_commands(robot)
 
-  puts 'Input toy robot commands, each followed by a new line:'
-
   collect = Collect.new
-  execute = Execute.new(collect)
+  collect.message
+  collect.collect_commands
+
+  execute = Execute.new(collect, robot)
+  execute.execute_commands
 
 end

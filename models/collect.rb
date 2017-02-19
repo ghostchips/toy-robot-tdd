@@ -2,6 +2,10 @@
 class Collect
 attr_accessor :commands
 
+  def message
+    puts 'Input toy robot commands, each followed by a new line:'
+  end
+
   def collect_commands
     # get commands from user, store each in a commands array.
     @commands = []
